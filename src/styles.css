@@ -1,0 +1,260 @@
+/* Body */
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f3f3f3;
+}
+
+/* ================= HEADER ================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #131921;
+  color: white;
+  padding: 15px 20px;
+}
+
+.logo {
+  margin: 0;
+  font-size: 22px;
+}
+
+/* Nav */
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* ================= TITLE ================= */
+h2 {
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* ================= SEARCH ================= */
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.search-box input {
+  width: 250px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-box button {
+  background: orange;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* ================= PRODUCT GRID ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Card */
+.card {
+  background: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Image */
+.product-img {
+  height: 150px;
+  cursor: pointer;
+}
+
+/* Buttons */
+button {
+  background: #f0c14b;
+  border: 1px solid #a88734;
+  padding: 8px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+/* ================= CART ================= */
+.cart-page {
+  padding: 20px;
+}
+
+.cart-item {
+  display: flex;
+  background: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.cart-item img {
+  width: 100px;
+  margin-right: 20px;
+}
+
+.cart-details {
+  flex: 1;
+}
+
+.qty {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.cart-total {
+  background: white;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-align: right;
+}
+
+/* ================= PRODUCT DETAILS ================= */
+.details-page {
+  padding: 20px;
+}
+
+/* Back button */
+.back-btn {
+  margin-bottom: 15px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+/* Main box */
+.details-box {
+  display: flex;
+  gap: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* Image */
+.details-box img {
+  height: 250px;
+  object-fit: contain;
+}
+
+/* Info */
+.details-info {
+  flex: 1;
+}
+
+/* Description */
+.desc {
+  margin: 10px 0;
+  color: #555;
+}
+
+/* ================= WISHLIST ================= */
+.wishlist-page {
+  padding: 20px;
+}
+
+/* Each item */
+.wishlist-item {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+/* Image */
+.wishlist-item img {
+  width: 100px;
+  margin-right: 20px;
+}
+
+/* Info */
+.wishlist-info {
+  flex: 1;
+}
+/* ================= CHECKOUT ================= */
+.checkout-page {
+  padding: 20px;
+}
+
+/* Item */
+.checkout-item {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+/* Image */
+.checkout-item img {
+  width: 80px;
+  margin-right: 20px;
+}
+
+/* Info */
+.checkout-info {
+  flex: 1;
+}
+
+/* Total */
+.checkout-total {
+  background: white;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-align: right;
+}
+
+/* Button */
+.checkout-page button {
+  margin-top: 15px;
+  padding: 10px;
+  background: orange;
+  border: none;
+  cursor: pointer;
+}
+/* ================= SUCCESS PAGE ================= */
+.success-page {
+  text-align: center;
+  padding: 50px;
+}
+
+.success-page button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
