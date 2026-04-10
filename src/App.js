@@ -10,19 +10,22 @@ import Wishlist from "./Wishlist";
 import Success from "./Success";
 import "./styles.css";
 
+// ✅ Import local products
+import productsData from "./data";
+
 function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
 
+  // ✅ Load local data (no API)
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
+    setProducts(productsData);
   }, []);
 
   return (
     <BrowserRouter>
+      {/* Header */}
       <Header cart={cart} />
 
       <Routes>
@@ -58,7 +61,7 @@ function App() {
           element={<ProductDetails cart={cart} setCart={setCart} />}
         />
 
-        {/* Success Page */}
+        {/* Success */}
         <Route path="/success" element={<Success />} />
       </Routes>
     </BrowserRouter>

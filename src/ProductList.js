@@ -5,7 +5,12 @@ function ProductList({ products, cart, setCart, wishlist, setWishlist }) {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
-  // Add to Cart
+  // ✅ Loading state
+  if (products.length === 0) {
+    return <h3 style={{ textAlign: "center" }}>Loading products...</h3>;
+  }
+
+  // ✅ Add to Cart
   const addToCart = (item) => {
     const exist = cart.find((p) => p.id === item.id);
 
@@ -20,21 +25,30 @@ function ProductList({ products, cart, setCart, wishlist, setWishlist }) {
     }
   };
 
-  // Clear search
+  // ✅ Add to Wishlist (prevent duplicates)
+  const addToWishlist = (item) => {
+    const exist = wishlist.find((p) => p.id === item.id);
+
+    if (!exist) {
+      setWishlist([...wishlist, item]);
+    }
+  };
+
+  // ✅ Clear search
   const clearSearch = () => {
     setSearch("");
   };
 
-  // Filter
+  // ✅ Filter products
   const filtered = products.filter((item) =>
     item.title.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
     <div>
-      <h2>Products</h2>
+      <h2 style={{ textAlign: "center" }}>Products</h2>
 
-      {/* 🔍 SEARCH BOX */}
+      {/* 🔍 Search */}
       <div className="search-box">
         <input
           type="text"
@@ -42,29 +56,34 @@ function ProductList({ products, cart, setCart, wishlist, setWishlist }) {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-
         <button onClick={clearSearch}>Clear</button>
       </div>
 
-      {/* PRODUCTS */}
+      {/* 🛍 Products Grid */}
       <div className="grid">
         {filtered.map((item) => (
           <div className="card" key={item.id}>
+            {/* ✅ Image with fallback */}
             <img
               src={item.image}
-              alt=""
+              alt={item.title}
               className="product-img"
+              onError={(e) => {
+                e.target.src = "https://via.placeholder.com/200";
+              }}
               onClick={() => navigate("/product/" + item.id)}
             />
 
-            <p>{item.title}</p>
-            <p>₹{Math.round(item.price * 80)}</p>
+            {/* ✅ Details */}
+            <p className="title">{item.title}</p>
+            <p className="price">₹{Math.round(item.price * 80)}</p>
 
-            <button onClick={() => addToCart(item)}>Add to Cart</button>
+            {/* ✅ Buttons */}
+            <div className="btn-group">
+              <button onClick={() => addToCart(item)}>Add to Cart</button>
 
-            <button onClick={() => setWishlist([...wishlist, item])}>
-              ❤️ Wishlist
-            </button>
+              <button onClick={() => addToWishlist(item)}>❤️ Wishlist</button>
+            </div>
           </div>
         ))}
       </div>
